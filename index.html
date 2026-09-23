@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#e9e0d1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Hanspal Apartment — Interior Walkthrough</title>
+<style>
+  :root{
+    --beige:#e9e0d1;
+    --beige-deep:#d8ccb6;
+    --ivory:#f7f1e6;
+    --paper:#fbf6ee;
+    --teak:#8a5a34;
+    --teak-deep:#6b4526;
+    --mauve:#9c7f8c;
+    --mauve-deep:#7a5f6b;
+    --ink:#2b2620;
+    --ink-soft:#5c5548;
+    --line: rgba(43,38,32,0.14);
+    color-scheme: light;
+    box-sizing:border-box;
+  }
+  html{
+    scroll-padding-top: env(safe-area-inset-top, 0px);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    min-height:100%;
+    min-height:100dvh;
+    overflow-x:hidden;
+    touch-action:pan-y;
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
+    font-synthesis:none;
+    letter-spacing:normal;
+    word-spacing:normal;
+  }
+  header{
+    padding:2.4rem 1.5rem 1.6rem;
+    background:var(--beige);
+    border-bottom:1px solid var(--line);
+  }
+  header .wrap{max-width:1040px;margin:0 auto;}
+  .eyebrow{font-size:0.78rem;color:var(--ink-soft);letter-spacing:0.04em;text-transform:uppercase;font-family:ui-monospace,Menlo,monospace;}
+  h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:500;
+    font-size:clamp(1.7rem, 4.5vw, 2.6rem);
+    margin-top:0.35rem;
+    max-width:22rem;
+    line-height:1.25;
+  }
+  .sub{margin-top:0.7rem;color:var(--ink-soft);max-width:58ch;line-height:1.5;font-size:0.98rem;}
+
+  main{max-width:1040px;margin:0 auto;padding:1.6rem 1.5rem 4rem;}
+
+  .plan-note{font-size:0.88rem;color:var(--ink-soft);margin-bottom:1rem;}
+
+  .plan{
+    display:grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, minmax(46px,1fr));
+    gap:6px;
+    border:1px solid var(--line);
+    padding:6px;
+    border-radius:2px;
+    background:var(--beige-deep);
+  }
+  .room-btn{
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:0.82rem;
+    text-align:left;
+    padding:0.55rem 0.6rem;
+    cursor:pointer;
+    border-radius:1px;
+    display:block;
+    line-height:1.3;
+    text-decoration:none;
+    -webkit-appearance:none;
+    appearance:none;
+  }
+  .room-btn.purple-room{background:#efe4e8;}
+  .room-btn.beige-room{background:#f3ead8;}
+  .room-btn.r-baths{background:#ece8e2;}
+  .room-btn:hover{filter:brightness(0.97);}
+  .room-btn:focus-visible{outline:2px solid var(--teak);outline-offset:2px;}
+  .room-btn.active{
+    background:var(--teak);
+    color:var(--ivory);
+    border-color:var(--teak-deep);
+  }
+  .room-btn.purple-room.active{background:var(--mauve);border-color:var(--mauve-deep);}
+  .room-btn.beige-room.active{background:var(--teak);border-color:var(--teak-deep);}
+
+  .r-second-bed{grid-column:1/3; grid-row:1/3;}
+  .r-master{grid-column:3/7; grid-row:1/3;}
+  .r-dining{grid-column:1/4; grid-row:3/5;}
+  .r-baths{grid-column:4/7; grid-row:3/5;}
+  .r-kitchen{grid-column:1/3; grid-row:5/7;}
+  .r-drawing{grid-column:3/5; grid-row:5/7;}
+  .r-guest{grid-column:5/7; grid-row:5/7;}
+
+  .detail{
+    margin-top:1.8rem;
+    border:1px solid var(--line);
+    border-radius:2px;
+    padding:1.6rem;
+    background:var(--beige);
+  }
+  .detail h2{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:500;
+    font-size:1.5rem;
+    line-height:1.3;
+  }
+  .detail .tagline{color:var(--ink-soft);margin-top:0.3rem;font-size:0.92rem;}
+
+  .scene-wrap{margin-top:1.1rem;}
+  .scene{
+    border:1px solid var(--line);
+    border-radius:2px;
+    overflow:hidden;
+    background:var(--paper);
+  }
+  .scene svg{display:block;width:100%;height:auto;}
+  .scene-meta{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    flex-wrap:wrap;
+    padding:0.7rem 0.9rem;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-top:0;
+    font-size:0.86rem;
+    color:var(--ink-soft);
+  }
+  .scene-meta strong{color:var(--ink);font-weight:600;}
+
+  .wall-row{
+    display:flex;
+    gap:0.45rem;
+    flex-wrap:wrap;
+    margin:1rem 0 0.7rem;
+  }
+  .wall-btn{
+    border:1px solid var(--line);
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:0.78rem;
+    padding:0.45rem 0.75rem;
+    cursor:pointer;
+    border-radius:1px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0.12rem;
+    min-width:8.5rem;
+  }
+  .wall-btn .wn{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:0.64rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);}
+  .wall-btn.active{background:var(--ink);color:var(--ivory);border-color:var(--ink);}
+  .wall-btn.active .wn{color:rgba(247,241,230,0.7);}
+  .wall-btn:focus-visible{outline:2px solid var(--teak);outline-offset:2px;}
+
+  .look-grid{
+    display:grid;
+    grid-template-columns: 140px 1fr;
+    gap:1rem;
+    margin-top:0.9rem;
+    align-items:start;
+  }
+  .mini-plan{
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:0.45rem;
+  }
+  .mini-plan svg{display:block;width:100%;height:auto;}
+  .mini-cap{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:0.3rem;}
+  .on-wall{font-size:0.9rem;line-height:1.5;}
+  .on-wall li{margin-left:1.1rem;}
+
+  .combo-row{display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:0.3rem;}
+  .combo-btn{
+    display:flex;align-items:center;gap:0.5rem;
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:0.35rem 0.7rem 0.35rem 0.35rem;
+    border-radius:20px;
+    cursor:pointer;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    font-size:0.78rem;
+    color:var(--ink);
+  }
+  .combo-btn.active{border-color:var(--ink);background:var(--beige-deep);}
+  .combo-btn:focus-visible{outline:2px solid var(--teak);outline-offset:2px;}
+  .combo-dot-pair{display:flex;}
+  .combo-dot-pair span{width:0.9rem;height:0.9rem;border-radius:50%;margin-left:-0.3rem;border:1px solid var(--ivory);flex:none;}
+  .combo-dot-pair span:first-child{margin-left:0;}
+
+  .mix-note{font-size:0.82rem;color:var(--ink-soft);margin:0.15rem 0 0.7rem;line-height:1.45;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:0.4rem;align-items:center;}
+  .chip{
+    width:1.7rem;height:1.7rem;border-radius:50%;border:2px solid transparent;
+    padding:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(43,38,32,0.18);
+    position:relative;
+  }
+  .chip.active{border-color:var(--ink);box-shadow:0 0 0 2px var(--paper), 0 0 0 3px var(--ink);}
+  .chip:focus-visible{outline:2px solid var(--teak);outline-offset:2px;}
+  .chip-name{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:0.62rem;color:var(--ink-soft);margin-left:0.15rem;margin-right:0.4rem;}
+  .chip-custom{
+    width:auto;height:1.7rem;border-radius:14px;padding:0 0.5rem 0 0.2rem;
+    display:inline-flex;align-items:center;gap:0.3rem;background:var(--paper);
+    border:1px solid var(--line);box-shadow:none;font-size:0.72rem;color:var(--ink);
+  }
+  .chip-custom input{width:1.25rem;height:1.25rem;border:0;padding:0;background:none;cursor:pointer;}
+  .mix-block{margin-bottom:0.85rem;}
+  .mix-label{font-size:0.84rem;margin-bottom:0.35rem;}
+  .mix-label strong{font-weight:600;}
+
+  .furniture-colors{display:flex;flex-direction:column;gap:0.5rem;}
+  .fc-row{display:flex;align-items:center;gap:0.7rem;font-size:0.88rem;flex-wrap:wrap;}
+  .fc-swatch{width:1.5rem;height:1.5rem;border-radius:3px;border:1px solid var(--line);flex:none;}
+  .fc-label{color:var(--ink-soft);min-width:12rem;}
+  .fc-hex{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-size:0.74rem;color:var(--ink-soft);}
+
+  .section-label{
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+    color:var(--ink-soft);
+    margin-top:1.3rem;
+    margin-bottom:0.4rem;
+  }
+  .detail p{line-height:1.55;font-size:0.96rem;}
+  .detail ul{margin-top:0.3rem; padding-left:1.1rem; line-height:1.6; font-size:0.96rem;}
+  .flag{
+    margin-top:1.1rem;
+    padding:0.85rem 1rem;
+    background:var(--paper);
+    border-left:3px solid var(--teak);
+    font-size:0.9rem;
+    line-height:1.5;
+  }
+  .phone-open{
+    display:none;
+    margin:0 0 1rem;
+    padding:0.85rem 1rem;
+    background:#3a352c;
+    color:#f7f1e6;
+    font-size:0.95rem;
+    line-height:1.45;
+  }
+  html:not(.js) .phone-open{display:block;}
+
+  .legend{display:flex;gap:1.4rem;flex-wrap:wrap;margin-top:1rem;font-size:0.8rem;color:var(--ink-soft);}
+  .legend span{display:inline-flex;align-items:center;gap:0.4rem;}
+  .dot{width:0.7rem;height:0.7rem;border-radius:50%;display:inline-block;}
+
+  footer{
+    max-width:1040px;margin:0 auto;padding:0 1.5rem 3rem;
+    color:var(--ink-soft); font-size:0.82rem; line-height:1.6;
+  }
+
+  @media (max-width:720px){
+    header{padding: calc(1.1rem + env(safe-area-inset-top, 0px)) 1rem 1rem;}
+    h1{max-width:none;font-size:1.55rem;line-height:1.25;}
+    .sub{font-size:0.9rem;}
+    main{padding:1rem 1rem calc(3rem + env(safe-area-inset-bottom, 0px));}
+    footer{padding:0 1rem calc(2rem + env(safe-area-inset-bottom, 0px));}
+    .plan{
+      grid-template-rows:repeat(6, minmax(52px,1fr));
+      min-height: 280px;
+    }
+    .room-btn{
+      font-size:0.78rem;
+      padding:0.45rem 0.5rem;
+      min-height:48px;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .detail{padding:1rem;margin-top:1.2rem;}
+    .detail h2{font-size:1.28rem;}
+    .wall-row{
+      flex-wrap:nowrap;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      padding-bottom:0.35rem;
+      margin-right:-1rem;
+      padding-right:1rem;
+    }
+    .wall-btn{min-width:7.8rem;min-height:48px;flex:none;}
+    .look-grid{grid-template-columns:1fr;}
+    .mini-plan{max-width:160px;}
+    .combo-btn,.chip,.room-btn,.wall-btn,.chip-custom{touch-action:manipulation;}
+    .combo-btn{min-height:40px;}
+    .fc-label{min-width:0;}
+    .scene-meta{font-size:0.8rem;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Hanspal, Bhubaneshwar · Mr. Suraj · 21.09.2026</div>
+    <h1>Tap a room, then tap each wall</h1>
+    <p class="sub">Furniture on different walls is drawn as separate elevations. Wall paint is locked to the job: beige in living / drawing / kitchen / dining, purple only in the three bedrooms.</p>
+  </div>
+</header>
+
+<main>
+  <p class="phone-open" id="phone-open">iPhone Files / WhatsApp preview cannot draw the rooms. Tap Share (square with arrow) → <b>Open in Safari</b>. Then tap a room.</p>
+  <p class="plan-note">Schematic, not to scale. The 7' TV is in Living / Drawing — beige walls. The small TV in the second bedroom is a bedroom set, on purple. Dining is the hall with loft and crockery, also beige.</p>
+
+  <div class="plan" id="plan">
+    <a class="room-btn purple-room r-second-bed" href="#detail" data-room="second-bed">Second Bedroom</a>
+    <a class="room-btn purple-room r-master" href="#detail" data-room="master">Master Bedroom</a>
+    <a class="room-btn beige-room r-dining" href="#detail" data-room="dining">Dining</a>
+    <a class="room-btn r-baths" href="#detail" data-room="baths">Bath &amp; Dressing</a>
+    <a class="room-btn beige-room r-kitchen" href="#detail" data-room="kitchen">Kitchen</a>
+    <a class="room-btn beige-room r-drawing" href="#detail" data-room="drawing">Living / Drawing</a>
+    <a class="room-btn purple-room r-guest" href="#detail" data-room="guest">Guest Bed &amp; Puja</a>
+  </div>
+
+  <div class="legend">
+    <span><span class="dot" style="background:var(--teak)"></span> Beige wall — living, drawing, kitchen</span>
+    <span><span class="dot" style="background:var(--mauve)"></span> Purple wall — bedrooms</span>
+  </div>
+
+  <div class="detail" id="detail">
+    <h2>Wall drawings load in Safari</h2>
+    <p class="tagline">The iPhone file preview only shows this plan. Open the same file in Safari to tap rooms, see each wall, and mix wardrobe colors.</p>
+  </div>
+</main>
+
+<footer>
+  Prepared as a working reference for Concepts &amp; Designs. Placements and sizes follow the furniture layout dated 21.09.2026. Lofts are not drawn on that sheet; they are shown here as overhead storage on the living wall opposite the basin.
+</footer>
+
+<script>
+document.documentElement.classList.add("js");
+const BEIGE = "#e9e0d1";
+const BEIGE_DEEP = "#d4c6ae";
+const PURPLE = "#9c7f8c";
+const FLOOR = "#d7ccb8";
+const TEAK = "#8a5a34";
+const TEAK_LT = "#a97a4c";
+const INK = "#2b2620";
+
+function asHex(c, fb){
+  if(!c) return fb;
+  if(c[0] === "#") return c;
+  const m = /#([0-9a-fA-F]{6})/.exec(c);
+  return m ? "#"+m[1] : fb;
+}
+
+function shade(hex, amt){
+  const n = parseInt(asHex(hex, "#8a5a34").slice(1), 16);
+  const c = [n>>16, (n>>8)&255, n&255].map(v => Math.min(255, Math.max(0, v + amt)));
+  return "#" + c.map(v => v.toString(16).padStart(2,"0")).join("");
+}
+
+const WOODS = [
+  { name: "White", hex: "#f8f5ef" },
+  { name: "Ivory", hex: "#f4efe6" },
+  { name: "Cream", hex: "#e8dfd0" },
+  { name: "Ash", hex: "#d4cdc0" },
+  { name: "Taupe", hex: "#c4b39a" },
+  { name: "Sand", hex: "#d8c4a0" },
+  { name: "Honey Oak", hex: "#c4924a" },
+  { name: "Teak", hex: "#8a5a34" },
+  { name: "Walnut", hex: "#6b3f24" },
+  { name: "Mahogany", hex: "#5a2e24" },
+  { name: "Sage", hex: "#7d8b73" },
+  { name: "Olive", hex: "#4a5240" },
+  { name: "Teal", hex: "#2f3e46" },
+  { name: "Navy", hex: "#3a4658" },
+  { name: "Graphite", hex: "#5c5548" },
+  { name: "Charcoal", hex: "#3a352c" },
+  { name: "Black", hex: "#2b2620" }
+];
+const FABRICS = [
+  { name: "Ivory cloth", hex: "#efe6d4" },
+  { name: "Warm Grey", hex: "#a9938a" },
+  { name: "Dusty Mauve", hex: "#9c7f8c" },
+  { name: "Blush", hex: "#c4a4a8" },
+  { name: "Terracotta", hex: "#c17b5a" },
+  { name: "Rust", hex: "#b06a4a" },
+  { name: "Ochre", hex: "#c9a24a" },
+  { name: "Bottle Green", hex: "#4f6a55" },
+  { name: "Sage cloth", hex: "#7d8b73" },
+  { name: "Slate", hex: "#6d7378" },
+  { name: "Navy cloth", hex: "#3a4658" },
+  { name: "Ink", hex: "#2b2620" }
+];
+const SETS = { wood: WOODS, fabric: FABRICS };
+
+const WARDROBE_LOOKS = [
+  { name: "Ash + Ivory + White", primary: "#d4cdc0", secondary: "#f4efe6", tertiary: "#f8f5ef" },
+  { name: "Ivory + Ash + Cream", primary: "#f4efe6", secondary: "#d4cdc0", tertiary: "#e8dfd0" },
+  { name: "Walnut + Cream + Ivory", primary: "#6b3f24", secondary: "#e8dfd0", tertiary: "#f4efe6" },
+  { name: "Teak + Ivory + Cream", primary: "#8a5a34", secondary: "#f4efe6", tertiary: "#e8dfd0" },
+  { name: "Honey Oak + White + Ivory", primary: "#c4924a", secondary: "#f8f5ef", tertiary: "#f4efe6" },
+  { name: "Charcoal + Ivory + Taupe", primary: "#3a352c", secondary: "#f4efe6", tertiary: "#c4b39a" },
+  { name: "Sage + Cream + White", primary: "#7d8b73", secondary: "#e8dfd0", tertiary: "#f8f5ef" },
+  { name: "Graphite + Taupe + Ivory", primary: "#5c5548", secondary: "#c4b39a", tertiary: "#f4efe6" },
+  { name: "Navy + Ivory + Ash", primary: "#3a4658", secondary: "#f4efe6", tertiary: "#d4cdc0" },
+  { name: "White + Walnut + Cream", primary: "#f8f5ef", secondary: "#6b3f24", tertiary: "#e8dfd0" }
+];
+
+let C = { primary: "#d4cdc0", secondary: "#f4efe6", tertiary: "#e8dfd0" };
+
+function defs(){
+  return `
+    <defs>
+      <linearGradient id="ceil" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fbf6ee"/><stop offset="1" stop-color="#efe6d6"/>
+      </linearGradient>
+      <linearGradient id="flr" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#e4d8c4"/><stop offset="1" stop-color="#cfc3ad"/>
+      </linearGradient>
+      <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#eef6f4" stop-opacity="0.55"/>
+        <stop offset="1" stop-color="#c5ddd6" stop-opacity="0.25"/>
+      </linearGradient>
+      <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#9aa0a6"/><stop offset="50" stop-color="#d5d8dc"/><stop offset="100" stop-color="#7d8389"/>
+      </linearGradient>
+      <filter id="soft"><feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#2b2620" flood-opacity="0.18"/></filter>
+    </defs>`;
+}
+
+function roomShell(wall, extra=""){
+  return `<svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg">
+    ${defs()}
+    <rect width="720" height="400" fill="#fbf6ee"/>
+    <rect x="0" y="0" width="720" height="268" fill="${wall}"/>
+    <rect x="0" y="0" width="720" height="22" fill="url(#ceil)"/>
+    <line x1="0" y1="22" x2="720" y2="22" stroke="rgba(43,38,32,0.12)" stroke-width="1"/>
+    <rect x="0" y="268" width="720" height="132" fill="url(#flr)"/>
+    <path d="M0 268 L720 268 L700 400 L20 400 Z" fill="${FLOOR}" opacity="0.35"/>
+    ${extra}
+  `;
+}
+
+function closeSvg(){ return `</svg>`; }
+
+function dimLine(x1, x2, y, label){
+  return `
+    <line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}" stroke="#5c5548" stroke-width="1"/>
+    <line x1="${x1}" y1="${y-4}" x2="${x1}" y2="${y+4}" stroke="#5c5548"/>
+    <line x1="${x2}" y1="${y-4}" x2="${x2}" y2="${y+4}" stroke="#5c5548"/>
+    <text x="${(x1+x2)/2}" y="${y-7}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" fill="#5c5548">${label}</text>`;
+}
+
+function label(x, y, t){
+  return `<text x="${x}" y="${y}" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1.2" fill="#5c5548">${t}</text>`;
+}
+
+function wardrobe({x, y, w, h, loft=46, doors=3, mirror=false, loftColor}){
+  const shutter = C.primary;
+  const flap = loftColor || C.secondary;
+  const insert = C.tertiary || shade(shutter, 22);
+  const carcass = shade(insert, -10);
+  const doorH = h - loft - 10;
+  const doorW = (w - 8) / doors;
+  let d = `
+    <g filter="url(#soft)">
+      <rect x="${x+6}" y="${y+8}" width="${w}" height="${h}" fill="${shade(carcass,-28)}"/>
+      <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${carcass}" stroke="${shade(carcass,-40)}" stroke-width="1.2"/>
+    </g>
+    <rect x="${x}" y="${y}" width="${w}" height="${loft}" fill="${shade(carcass,-12)}" stroke="${shade(carcass,-40)}" stroke-width="1"/>
+    <line x1="${x}" y1="${y+loft}" x2="${x+w}" y2="${y+loft}" stroke="${shade(carcass,-50)}" stroke-width="1.5"/>`;
+  const loftDoors = Math.max(2, doors);
+  const lw = w / loftDoors;
+  for(let i=0;i<loftDoors;i++){
+    d += `<rect x="${x+3+i*lw}" y="${y+4}" width="${lw-6}" height="${loft-8}" fill="${flap}" stroke="${shade(carcass,-30)}"/>
+          <rect x="${x+i*lw+lw/2-8}" y="${y+loft/2-2}" width="16" height="3" rx="1" fill="#3a3228"/>`;
+  }
+  for(let i=0;i<doors;i++){
+    const dx = x + 4 + i*doorW;
+    const dy = y + loft + 4;
+    const isMirror = mirror && i === doors-1;
+    d += `<rect x="${dx}" y="${dy}" width="${doorW-4}" height="${doorH}" fill="${isMirror ? '#d8e4e8' : shutter}" stroke="${shade(carcass,-35)}" stroke-width="1.2"/>`;
+    if(!isMirror){
+      d += `<rect x="${dx+8}" y="${dy+10}" width="${doorW-20}" height="${doorH-20}" fill="${insert}" stroke="${shade(insert,-22)}" stroke-width="0.8"/>`;
+      for(let g=1;g<5;g++){
+        d += `<line x1="${dx+10+g*((doorW-24)/5)}" y1="${dy+14}" x2="${dx+10+g*((doorW-24)/5)}" y2="${dy+doorH-14}" stroke="${shade(insert,-16)}" stroke-width="1" opacity="0.4"/>`;
+      }
+    } else {
+      d += `<rect x="${dx+6}" y="${dy+8}" width="${doorW-16}" height="${doorH-16}" fill="url(#glass)" stroke="#8aa0a6"/>
+            <path d="M${dx+14} ${dy+20} L${dx+doorW-24} ${dy+doorH*0.4}" stroke="white" stroke-opacity="0.55" stroke-width="3"/>`;
+    }
+    const hx = i < doors/2 ? dx + doorW - 14 : dx + 6;
+    d += `<rect x="${hx}" y="${dy+doorH*0.42}" width="4" height="36" rx="1.5" fill="#3a3228"/>`;
+  }
+  d += `<rect x="${x}" y="${y+h-8}" width="${w}" height="8" fill="#3a3228"/>`;
+  d += label(x+8, y-6, "WARDROBE + LOFT");
+  return d;
+}
+
+function studyDesk({x, y}){
+  return `
+    <g filter="url(#soft)">
+      <rect x="${x}" y="${y}" width="168" height="10" rx="1" fill="${TEAK}"/>
+      <rect x="${x}" y="${y}" width="168" height="4" fill="${TEAK_LT}"/>
+      <rect x="${x+10}" y="${y+10}" width="6" height="52" fill="#2b2620"/>
+      <rect x="${x+152}" y="${y+10}" width="6" height="52" fill="#2b2620"/>
+      <rect x="${x+6}" y="${y+60}" width="14" height="4" fill="#2b2620"/>
+      <rect x="${x+148}" y="${y+60}" width="14" height="4" fill="#2b2620"/>
+    </g>
+    <rect x="${x+18}" y="${y-22}" width="46" height="18" fill="#efe6d4" stroke="#8a5a34"/>
+    <rect x="${x+22}" y="${y-18}" width="38" height="3" fill="#c9a24a" opacity="0.5"/>
+    <rect x="${x+70}" y="${y-8}" width="52" height="6" rx="1" fill="#f4f1ea"/>
+    <rect x="${x+128}" y="${y-28}" width="8" height="28" fill="#2b2620"/>
+    <ellipse cx="${x+132}" cy="${y-32}" rx="10" ry="6" fill="#f4d78e"/>
+    <g>
+      <rect x="${x+48}" y="${y+28}" width="54" height="8" rx="2" fill="#5c5548"/>
+      <rect x="${x+56}" y="${y+8}" width="38" height="28" rx="3" fill="#6b6054"/>
+      <rect x="${x+62}" y="${y+14}" width="26" height="14" fill="#e9e0d1"/>
+    </g>
+    ${label(x, y-40, "STUDY  3'-6\" × 1'-10\"")}`;
+}
+
+function loftRun({x, y, w, h=42, doors=5, title="LOFT"}){
+  const body = C.secondary;
+  const face = C.tertiary || shade(body, 28);
+  let s = `<g filter="url(#soft)">
+    <rect x="${x+5}" y="${y+4}" width="${w}" height="${h}" fill="${shade(body,-24)}"/>
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${body}" stroke="${shade(body,-40)}"/>
+  </g>`;
+  const dw = w / doors;
+  for(let i=0;i<doors;i++){
+    s += `<rect x="${x+3+i*dw}" y="${y+4}" width="${dw-6}" height="${h-8}" fill="${face}" stroke="${shade(body,-30)}"/>
+          <rect x="${x+i*dw+dw/2-9}" y="${y+h/2-2}" width="18" height="3" rx="1" fill="#3a3228"/>`;
+  }
+  s += label(x+4, y-6, title);
+  return s;
+}
+
+function upperCabs({x, y, w, h=58, doors=4, title="UPPER CABINETS", role="secondary"}){
+  const body = C[role] || C.secondary;
+  const face = C.tertiary || shade(body, 22);
+  let s = `<g filter="url(#soft)">
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${body}" stroke="${shade(body,-35)}"/>
+  </g>`;
+  const dw = w / doors;
+  for(let i=0;i<doors;i++){
+    s += `<rect x="${x+3+i*dw}" y="${y+4}" width="${dw-6}" height="${h-8}" fill="${face}" stroke="${shade(body,-20)}"/>`;
+  }
+  s += `<line x1="${x}" y1="${y+h+3}" x2="${x+w}" y2="${y+h+3}" stroke="#f4d78e" stroke-width="3"/>`;
+  s += label(x+4, y-6, title);
+  return s;
+}
+
+function baseCabs({x, y, w, h=52, doors=4}){
+  const body = C.primary;
+  const face = C.tertiary || shade(body, 24);
+  let s = `<g filter="url(#soft)">
+    <rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${body}" stroke="${shade(body,-35)}"/>
+  </g>`;
+  const dw = w / doors;
+  for(let i=0;i<doors;i++){
+    s += `<rect x="${x+3+i*dw}" y="${y+5}" width="${dw-6}" height="${h-10}" fill="${face}" stroke="${shade(body,-28)}"/>
+          <rect x="${x+i*dw+dw-14}" y="${y+h/2-10}" width="3" height="20" rx="1" fill="#3a3228"/>`;
+  }
+  return s;
+}
+
+function bed({x, y, w=220}){
+  return `
+    <g filter="url(#soft)">
+      <rect x="${x}" y="${y}" width="${w}" height="22" rx="3" fill="${TEAK_LT}"/>
+      <rect x="${x+8}" y="${y+16}" width="${w-16}" height="48" rx="4" fill="${TEAK}"/>
+      <rect x="${x+16}" y="${y+22}" width="${w-32}" height="28" rx="3" fill="#efe6d4"/>
+      <rect x="${x+22}" y="${y+4}" width="28" height="20" rx="3" fill="#f8f5ef"/>
+      <rect x="${x+54}" y="${y+4}" width="28" height="20" rx="3" fill="#f8f5ef"/>
+    </g>`;
+}
+
+function nightstand(x, y){
+  return `<rect x="${x}" y="${y}" width="28" height="26" fill="${TEAK}"/>
+          <rect x="${x+3}" y="${y+4}" width="22" height="8" fill="${TEAK_LT}"/>
+          <circle cx="${x+14}" cy="${y-10}" r="4" fill="#f4d78e"/>
+          <line x1="${x+14}" y1="${y-6}" x2="${x+14}" y2="${y}" stroke="#c9a24a"/>`;
+}
+
+function miniPlanSvg(pts, active){
+  const boxes = pts.map((p,i) => {
+    const on = i === active;
+    return `<rect x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" fill="${on ? '#8a5a34' : '#f3ead8'}" stroke="${on ? '#6b4526' : '#8a7a64'}" stroke-width="${on ? 2.5 : 1}"/>
+            <text x="${p.x+p.w/2}" y="${p.y+p.h/2+3}" text-anchor="middle" font-size="8" font-family="IBM Plex Mono, monospace" fill="${on ? '#f7f1e6' : '#5c5548'}">${p.t}</text>`;
+  }).join("");
+  return `<svg viewBox="0 0 120 90" xmlns="http://www.w3.org/2000/svg"><rect width="120" height="90" fill="#f7f1e6"/>${boxes}</svg>`;
+}
+
+const rooms = {
+  "second-bed": {
+    title: "Second Bedroom",
+    tag: "Purple on all four walls. Wardrobe and TV sit on opposite walls — shown separately.",
+    paint: "purple",
+    roles: { primary: "Wardrobe shutters + TV carcass", secondary: "Loft flaps + TV niches", tertiary: "Door inserts" },
+    pickers: [
+      { key: "primary", label: "Wardrobe shutters + TV carcass", set: "wood" },
+      { key: "secondary", label: "Loft flaps + TV niches", set: "wood" },
+      { key: "tertiary", label: "Door inserts", set: "wood" }
+    ],
+    combos: WARDROBE_LOOKS,
+    body: "Since all four walls are already painted purple, the wardrobe and TV shelf keep the room from feeling closed in. Keep both in the lightest option, ash grey or warm ivory. A large mirror on one wardrobe shutter bounces light back. Skip heavy curtains — sheers against the balcony door.",
+    lighting: [
+      "TV shelf: recessed spotlights, warm white 3000K, washing the shelf",
+      "Bedside: wall-mounted swing-arm reading lights, matte black or brushed brass, both sides",
+      "One extra ceiling fixture versus a beige room — purple absorbs more light",
+      "No table lamps; the 1'-8\" side tables are too narrow"
+    ],
+    flag: "With paint already done, color work now sits on furniture, mirrors, and lighting. Keep every other element light.",
+    walls: [
+      {
+        id: "wardrobe",
+        name: "Wardrobe wall",
+        dim: "5'-0\"",
+        face: "South wall, opposite the balcony. Bed is behind you.",
+        items: ["5'-0\" full-height wardrobe", "Overhead loft with lift-up flaps", "One mirrored shutter", "Plinth off the floor"],
+        mini: [{x:12,y:58,w:70,h:18,t:"WR 5'"},{x:18,y:22,w:52,h:32,t:"bed"},{x:78,y:22,w:12,h:40,t:"TV"}],
+        active: 0,
+        svg(){
+          return roomShell(PURPLE, `
+            ${wardrobe({x:168, y:36, w:384, h:232, loft:50, doors:3, mirror:true})}
+            ${dimLine(168, 552, 292, "5'-0\"")}
+            ${label(24, 390, "SECOND BEDROOM  ·  PURPLE WALL")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "tv",
+        name: "TV unit wall",
+        dim: "5' high",
+        face: "East wall of the second bedroom — purple paint. This is not the living-room TV. Living TV is 7' on a beige wall in Living / Drawing.",
+        items: ["Bedroom TV unit, 5' high", "Purple wall (bedroom)", "Open niches", "Living / Drawing TV is a separate beige wall"],
+        mini: [{x:12,y:58,w:70,h:18,t:"WR"},{x:18,y:22,w:52,h:32,t:"bed"},{x:78,y:22,w:12,h:40,t:"TV"}],
+        active: 2,
+        svg(){
+          return roomShell(PURPLE, `
+            <g filter="url(#soft)">
+              <rect x="250" y="48" width="220" height="220" fill="${C.primary}" stroke="#6b4526"/>
+              <rect x="258" y="56" width="204" height="118" fill="#1c1a18"/>
+              <rect x="268" y="66" width="184" height="98" fill="#2b2620"/>
+              <rect x="258" y="180" width="204" height="36" fill="${C.secondary}"/>
+              <rect x="266" y="186" width="54" height="24" fill="${C.tertiary}"/>
+              <rect x="326" y="186" width="54" height="24" fill="${C.tertiary}"/>
+              <rect x="386" y="186" width="66" height="24" fill="${C.tertiary}"/>
+              <rect x="258" y="222" width="204" height="38" fill="${C.primary}"/>
+            </g>
+            <line x1="250" y1="44" x2="470" y2="44" stroke="#f4d78e" stroke-width="3"/>
+            ${dimLine(250, 470, 292, "BEDROOM TV  ·  5'")}
+            ${label(250, 38, "SECOND BEDROOM TV")}
+            ${label(24, 390, "PURPLE WALL  ·  NOT THE LIVING TV")}
+            ${bed({x:80, y:248, w:140})}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "bed",
+        name: "Bed + balcony",
+        dim: "bed 6'  ·  sides 1'-8\"",
+        face: "North wall, onto the balcony. Wardrobe is behind you.",
+        items: ["6' bed, sagwan / teak", "Two 1'-8\" side tables", "Balcony door 2'-4¾\"", "Sheer on the opening"],
+        mini: [{x:12,y:58,w:70,h:18,t:"WR"},{x:18,y:22,w:52,h:32,t:"bed"},{x:78,y:22,w:12,h:40,t:"TV"}],
+        active: 1,
+        svg(){
+          return roomShell(PURPLE, `
+            <rect x="250" y="22" width="220" height="200" fill="#c9b7a4" stroke="#8a5a34"/>
+            <rect x="262" y="34" width="196" height="176" fill="#dfeaf0" opacity="0.55"/>
+            <rect x="262" y="34" width="196" height="176" fill="none" stroke="#e9e0d1" stroke-width="8"/>
+            <line x1="360" y1="34" x2="360" y2="210" stroke="#e9e0d1" stroke-width="6"/>
+            ${label(250, 16, "BALCONY  2'-4¾\"")}
+            ${bed({x:200, y:214, w:320})}
+            ${nightstand(164, 236)}
+            ${nightstand(528, 236)}
+            ${dimLine(200, 520, 292, "BED  6'")}
+            ${dimLine(164, 192, 318, "1'-8\"")}
+            ${dimLine(528, 556, 318, "1'-8\"")}
+          `) + closeSvg();
+        }
+      }
+    ]
+  },
+  "master": {
+    title: "Master Bedroom",
+    tag: "Purple on all four walls. Dressing sits on the bedside wall. Study sits opposite the bed, 2'-9½\" off the foot.",
+    paint: "purple",
+    roles: { primary: "Wardrobe / dresser shutters", secondary: "Loft flaps", tertiary: "Door inserts" },
+    pickers: [
+      { key: "primary", label: "Wardrobe / dresser shutters", set: "wood" },
+      { key: "secondary", label: "Loft flaps", set: "wood" },
+      { key: "tertiary", label: "Door inserts", set: "wood" }
+    ],
+    combos: WARDROBE_LOOKS,
+    body: "Read from the layout: bed head to the west, foot toward the study. The 2' dressing is on the north wall beside the bed, not behind the headboard. The 3'-6\" × 1'-10\" study is on the same north run but at the far end — you face it from the bed, with 2'-9½\" clear at the foot. Wardrobe is the 6' south run over the baths. Backlit mirror on the dressing. Study desk: floating teak top, slim black metal legs.",
+    lighting: [
+      "Backlit LED strip around the dresser mirror",
+      "Study: one wall-mounted lamp, 3000K, not a bulky table lamp",
+      "Bedside: same swing-arm as the second bedroom",
+      "General ceiling a notch brighter than the beige rooms"
+    ],
+    flag: "Don't sit the 6' wardrobe directly on bathroom-adjacent moisture. Raised plinth or moisture barrier.",
+    walls: [
+      {
+        id: "wardrobe",
+        name: "Wardrobe wall",
+        dim: "6'-0\"",
+        face: "South wall, over the baths. Bed is opposite you. Study is ahead-right, not on this wall.",
+        items: ["6'-0\" full-height wardrobe", "Loft over the full run", "Three shutter doors", "Keep off the bath tiles"],
+        mini: [{x:14,y:12,w:20,h:14,t:"dr"},{x:16,y:30,w:50,h:26,t:"bed"},{x:80,y:12,w:26,h:20,t:"study"},{x:40,y:66,w:64,h:16,t:"WR 6'"}],
+        active: 3,
+        svg(){
+          return roomShell(PURPLE, `
+            ${wardrobe({x:120, y:32, w:480, h:236, loft:48, doors:3, mirror:false})}
+            ${dimLine(120, 600, 292, "6'-0\"")}
+            ${label(24, 390, "SOUTH WALL  ·  PURPLE  ·  OVER THE BATHS")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "dressing",
+        name: "Dressing — bedside",
+        dim: "2'-0\"",
+        face: "North wall, beside the bed — not behind the headboard. Study is further along this same wall, opposite the foot.",
+        items: ["2' dressing on the bedside wall", "Backlit mirror", "Drawers below", "Bed runs along this wall, head to the west"],
+        mini: [{x:14,y:12,w:20,h:14,t:"DR"},{x:16,y:30,w:50,h:26,t:"bed"},{x:80,y:12,w:26,h:20,t:"study"},{x:40,y:66,w:64,h:16,t:"WR"}],
+        active: 0,
+        svg(){
+          return roomShell(PURPLE, `
+            <g filter="url(#soft)">
+              <rect x="200" y="36" width="240" height="232" fill="${C.primary}" stroke="#6b4526"/>
+              <rect x="212" y="48" width="216" height="148" fill="#f4d78e" opacity="0.28"/>
+              <rect x="224" y="60" width="192" height="124" fill="#d8e4e8" stroke="#c9a24a" stroke-width="3"/>
+              <path d="M240 78 L390 160" stroke="white" stroke-opacity="0.5" stroke-width="4"/>
+              <rect x="212" y="202" width="104" height="56" fill="${C.secondary}"/>
+              <rect x="324" y="202" width="104" height="56" fill="${C.secondary}"/>
+            </g>
+            ${bed({x:70, y:232, w:200})}
+            ${nightstand(36, 248)}
+            ${dimLine(200, 440, 292, "DRESSING  2'-0\"  ·  BEDSIDE")}
+            ${label(200, 30, "BACKLIT MIRROR")}
+            ${label(24, 390, "NORTH BEDSIDE WALL  ·  BED ALONG THIS WALL")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "study",
+        name: "Study — opposite bed",
+        dim: "3'-6\" × 1'-10\"",
+        face: "You are standing at the bed, looking toward the foot. Study is opposite you. Dressing is behind your left shoulder, same north wall.",
+        items: ["Desk opposite the bed, not beside it", "3'-6\" wide, 1'-10\" deep", "2'-9½\" clear from the bed foot", "Chair + task lamp"],
+        mini: [{x:14,y:12,w:20,h:14,t:"dr"},{x:16,y:30,w:50,h:26,t:"bed"},{x:80,y:12,w:26,h:20,t:"STUDY"},{x:40,y:66,w:64,h:16,t:"WR"}],
+        active: 2,
+        svg(){
+          return roomShell(PURPLE, `
+            ${studyDesk({x:276, y:200})}
+            <rect x="470" y="36" width="18" height="200" fill="#c9b7a4" stroke="#8a5a34"/>
+            <rect x="474" y="48" width="10" height="176" fill="#dfeaf0" opacity="0.45"/>
+            ${label(448, 30, "E. WINDOW")}
+            ${dimLine(276, 444, 292, "STUDY  3'-6\"")}
+            ${dimLine(80, 260, 318, "2'-9½\" FROM BED FOOT")}
+            ${label(24, 390, "OPPOSITE THE BED  ·  NORTH-EAST  ·  1'-10\" DEEP")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "bed",
+        name: "Looking at the bed",
+        dim: "from the study",
+        face: "Standing at the study, looking at the bed. Dressing is on the north bedside, to the right. Wardrobe is south, behind your left.",
+        items: ["Bed head to the west", "Dressing on the right — bedside, not behind the head", "Study is behind you", "2'-9½\" of floor between you and the foot"],
+        mini: [{x:14,y:12,w:20,h:14,t:"dr"},{x:16,y:30,w:50,h:26,t:"BED"},{x:80,y:12,w:26,h:20,t:"study"},{x:40,y:66,w:64,h:16,t:"WR"}],
+        active: 1,
+        svg(){
+          return roomShell(PURPLE, `
+            <g filter="url(#soft)">
+              <rect x="470" y="70" width="70" height="170" fill="${C.primary}" stroke="#6b4526"/>
+              <rect x="478" y="80" width="54" height="90" fill="#f4d78e" opacity="0.4"/>
+              <rect x="478" y="176" width="54" height="56" fill="${C.secondary}"/>
+            </g>
+            ${label(470, 64, "DRESSING")}
+            ${bed({x:160, y:214, w:280})}
+            ${nightstand(124, 236)}
+            ${nightstand(448, 236)}
+            ${dimLine(160, 440, 292, "BED  ·  HEAD WEST")}
+            ${label(24, 390, "FROM THE STUDY  ·  DRESSING ON THE BEDSIDE")}
+          `) + closeSvg();
+        }
+      }
+    ]
+  },
+  "baths": {
+    title: "Attached Bath & Dressing",
+    tag: "Two toilets under the master. Dressing wardrobe sits on the tiled wall, not in the bedroom.",
+    paint: "tile",
+    roles: { primary: "Vanity cabinet", secondary: "Wardrobe on tiled wall" },
+    pickers: [
+      { key: "primary", label: "Vanity cabinet", set: "wood" },
+      { key: "secondary", label: "Wardrobe on tiled wall", set: "wood" }
+    ],
+    combos: [
+      { name: "Charcoal + Warm Wood", primary: "#3a352c", secondary: "#d9d0c2" },
+      { name: "Deep Olive + Ivory", primary: "#3f4a3a", secondary: "#ece5d8" },
+      { name: "Espresso + Soft Grey", primary: "#4a3a30", secondary: "#cfc9be" }
+    ],
+    body: "Large-format porcelain with a quiet marble vein, not small glossy tiles. Two WCs share the wet block under the master. The 6' wardrobe run of the master sits on the wall above this block — keep a plinth.",
+    lighting: [
+      "Vanity: horizontal LED bar above the mirror, warm white",
+      "One central warm-white fixture per toilet, dimmable if the circuit allows"
+    ],
+    flag: "",
+    walls: [
+      {
+        id: "vanity",
+        name: "Vanity wall",
+        dim: "shared wet block",
+        face: "Looking at the basin wall in the attached bath.",
+        items: ["Vanity cabinet", "Mirror with LED bar", "Large-format tile"],
+        mini: [{x:14,y:14,w:92,h:28,t:"master WR"},{x:14,y:48,w:44,h:28,t:"bath 1"},{x:62,y:48,w:44,h:28,t:"bath 2"}],
+        active: 1,
+        svg(){
+          return roomShell("#ece5d8", `
+            <g stroke="#d8ccb6" stroke-width="1.2" fill="#f3ece0">
+              <rect x="0" y="22" width="720" height="246"/>
+              <line x1="0" y1="84" x2="720" y2="84"/><line x1="0" y1="146" x2="720" y2="146"/><line x1="0" y1="208" x2="720" y2="208"/>
+              <line x1="180" y1="22" x2="180" y2="268"/><line x1="360" y1="22" x2="360" y2="268"/><line x1="540" y1="22" x2="540" y2="268"/>
+            </g>
+            <rect x="220" y="48" width="280" height="110" fill="${C.secondary}" stroke="#8a5a34"/>
+            <line x1="230" y1="40" x2="490" y2="40" stroke="#f4d78e" stroke-width="6"/>
+            <rect x="230" y="200" width="260" height="14" fill="#2b2620"/>
+            <rect x="238" y="214" width="244" height="54" fill="${C.primary}"/>
+            ${label(220, 36, "MIRROR + LED BAR")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "wc",
+        name: "Toilet walls",
+        dim: "two WCs",
+        face: "The two toilets sit back-to-back under the master.",
+        items: ["Two WCs", "Large-format tile to a clean height", "Shared wet-wall stack"],
+        mini: [{x:14,y:14,w:92,h:28,t:"master WR"},{x:14,y:48,w:44,h:28,t:"bath 1"},{x:62,y:48,w:44,h:28,t:"bath 2"}],
+        active: 2,
+        svg(){
+          return roomShell("#ece5d8", `
+            <g stroke="#d8ccb6" stroke-width="1.2" fill="#f3ece0">
+              <rect x="0" y="22" width="720" height="246"/>
+              <line x1="0" y1="104" x2="720" y2="104"/><line x1="0" y1="186" x2="720" y2="186"/>
+              <line x1="360" y1="22" x2="360" y2="268"/>
+            </g>
+            <ellipse cx="200" cy="230" rx="28" ry="14" fill="#e9e0d1" stroke="#8a5a34"/>
+            <rect x="188" y="200" width="24" height="32" fill="#d8ccb6" stroke="#8a5a34"/>
+            <ellipse cx="520" cy="230" rx="28" ry="14" fill="#e9e0d1" stroke="#8a5a34"/>
+            <rect x="508" y="200" width="24" height="32" fill="#d8ccb6" stroke="#8a5a34"/>
+            ${label(160, 180, "BATH 1")}
+            ${label(480, 180, "BATH 2")}
+          `) + closeSvg();
+        }
+      }
+    ]
+  },
+  "dining": {
+    title: "Dining",
+    tag: "Beige walls. Crockery and fridge on one wall; loft and upper cabinets on the opposite wall. The 7' TV is not here — it is in Living / Drawing, also beige.",
+    paint: "beige",
+    roles: { primary: "Dining chair fabric", secondary: "Loft & cabinet body", tertiary: "Loft / cabinet door faces" },
+    pickers: [
+      { key: "primary", label: "Dining chair fabric", set: "fabric" },
+      { key: "secondary", label: "Loft & cabinet body", set: "wood" },
+      { key: "tertiary", label: "Loft / cabinet door faces", set: "wood" }
+    ],
+    combos: [
+      { name: "Mauve + Charcoal + Cream", primary: "#9c7f8c", secondary: "#3a352c", tertiary: "#e8dfd0" },
+      { name: "Rust + Olive + Ivory", primary: "#b06a4a", secondary: "#4a5240", tertiary: "#f4efe6" },
+      { name: "Green + Teak + Cream", primary: "#4f6a55", secondary: "#8a5a34", tertiary: "#e8dfd0" },
+      { name: "Grey + Walnut + Ivory", primary: "#a9938a", secondary: "#6b3f24", tertiary: "#f4efe6" },
+      { name: "Ochre + Navy + White", primary: "#c9a24a", secondary: "#3a4658", tertiary: "#f8f5ef" },
+      { name: "Blush + Sage + White", primary: "#c4a4a8", secondary: "#7d8b73", tertiary: "#f8f5ef" }
+    ],
+    body: "Beige dining hall. Skip a crystal chandelier — one linear or sputnik pendant over the table. The 3' crockery sits with the fridge on the north wall. Opposite: loft at the ceiling and upper cabinets under it, same finish as the kitchen. The 7' living TV is on the beige wall in Living / Drawing, not in this room.",
+    lighting: [
+      "Pendant over the table: hero fixture, warm white, own dimmer",
+      "Loft / upper cabinet: under-cabinet LED wash, same as kitchen",
+      "Cove in the false ceiling as the late-evening layer",
+      "Sconces only as fill, on a separate switch"
+    ],
+    flag: "Pendant, sconces, and cove in one zone is easy to overdo. Each on its own switch.",
+    walls: [
+      {
+        id: "loft",
+        name: "Living loft wall",
+        dim: "full run",
+        face: "Beige living wall, opposite the crockery / basin sightline. This is the missing loft + upper cabinet.",
+        items: ["Ceiling loft, shuttered, kitchen-match finish", "Upper cabinets under the loft", "Warm LED strip under the uppers", "Beige wall left clear below so the hall stays open"],
+        mini: [{x:16,y:12,w:88,h:18,t:"crockery"},{x:20,y:36,w:80,h:24,t:"table"},{x:16,y:64,w:88,h:16,t:"LOFT"}],
+        active: 2,
+        svg(){
+          return roomShell(BEIGE, `
+            ${loftRun({x:70, y:30, w:580, h:46, doors:6, title:"LOFT  ·  MATCH KITCHEN"})}
+            ${upperCabs({x:110, y:92, w:500, h:62, doors:5, title:"UPPER CABINETS"})}
+            <rect x="40" y="180" width="10" height="70" rx="2" fill="#4a4038"/>
+            <rect x="670" y="180" width="10" height="70" rx="2" fill="#4a4038"/>
+            ${label(40, 390, "BEIGE DINING WALL  ·  LOFT + UPPERS")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "crockery",
+        name: "Crockery + fridge",
+        dim: "crockery 3'",
+        face: "North wall of the dining, under the second-bedroom wardrobe. Kitchen opening is to the left.",
+        items: ["3' crockery — closed base, glass uppers", "Fridge beside it", "Internal LED in the glass", "Beige wall"],
+        mini: [{x:16,y:12,w:88,h:18,t:"CROCKERY"},{x:20,y:36,w:80,h:24,t:"table"},{x:16,y:64,w:88,h:16,t:"loft"}],
+        active: 0,
+        svg(){
+          return roomShell(BEIGE, `
+            ${loftRun({x:80, y:28, w:560, h:36, doors:5, title:"LOFT CONTINUES"})}
+            <g filter="url(#soft)">
+              <rect x="130" y="78" width="210" height="190" fill="${C.secondary}" stroke="#2b2620"/>
+              <rect x="140" y="88" width="92" height="70" fill="url(#glass)" stroke="#8a5a34"/>
+              <rect x="238" y="88" width="92" height="70" fill="url(#glass)" stroke="#8a5a34"/>
+              <rect x="148" y="100" width="28" height="36" fill="#c17b5a" opacity="0.5"/>
+              <rect x="184" y="108" width="22" height="28" fill="#4f6a55" opacity="0.45"/>
+              <rect x="246" y="102" width="30" height="32" fill="#e7ded0" opacity="0.7"/>
+              <line x1="130" y1="168" x2="340" y2="168" stroke="#f4d78e" stroke-width="2"/>
+              <rect x="140" y="176" width="92" height="82" fill="#2b2620"/>
+              <rect x="238" y="176" width="92" height="82" fill="#2b2620"/>
+            </g>
+            ${label(130, 74, "CROCKERY  3'")}
+            <g filter="url(#soft)">
+              <rect x="360" y="78" width="130" height="190" rx="4" fill="url(#steel)" stroke="#5c5548"/>
+              <rect x="372" y="90" width="106" height="70" fill="#c5c9ce"/>
+              <rect x="372" y="168" width="106" height="88" fill="#b7bcc1"/>
+              <circle cx="478" cy="172" r="4" fill="#2b2620"/>
+            </g>
+            ${label(360, 74, "FRIDGE")}
+            ${dimLine(130, 340, 292, "3'-0\"")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "table",
+        name: "Table + pendant",
+        dim: "hall centre",
+        face: "Standing in the beige dining. Crockery behind the far wall; loft wall to one side.",
+        items: ["Teak dining table", "Four upholstered chairs", "One hero pendant", "Sconces as fill only"],
+        mini: [{x:16,y:12,w:88,h:18,t:"crockery"},{x:20,y:36,w:80,h:24,t:"TABLE"},{x:16,y:64,w:88,h:16,t:"loft"}],
+        active: 1,
+        svg(){
+          return roomShell(BEIGE, `
+            ${loftRun({x:40, y:26, w:200, h:32, doors:3, title:"LOFT (SIDE)"})}
+            <line x1="360" y1="22" x2="360" y2="70" stroke="#4a4038" stroke-width="3"/>
+            <ellipse cx="360" cy="82" rx="54" ry="12" fill="#2b2620"/>
+            <ellipse cx="360" cy="78" rx="40" ry="7" fill="#3a3228"/>
+            <g filter="url(#soft)">
+              <rect x="200" y="210" width="320" height="18" rx="3" fill="${TEAK}"/>
+              <rect x="200" y="210" width="320" height="6" fill="${TEAK_LT}"/>
+              <rect x="214" y="228" width="8" height="40" fill="#6b4526"/>
+              <rect x="498" y="228" width="8" height="40" fill="#6b4526"/>
+            </g>
+            <ellipse cx="250" cy="248" rx="16" ry="22" fill="${C.primary}"/>
+            <ellipse cx="320" cy="248" rx="16" ry="22" fill="${C.primary}"/>
+            <ellipse cx="400" cy="248" rx="16" ry="22" fill="${C.primary}"/>
+            <ellipse cx="470" cy="248" rx="16" ry="22" fill="${C.primary}"/>
+            <rect x="40" y="150" width="12" height="36" rx="3" fill="#4a4038"/>
+            <rect x="668" y="150" width="12" height="36" rx="3" fill="#4a4038"/>
+            ${label(40, 390, "BEIGE DINING  ·  PENDANT ON ITS OWN DIMMER")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "utility",
+        name: "Utility / basin",
+        dim: "WM 3'  ·  basin 2'-6\"",
+        face: "Passage between the two bedrooms, visible from the dining. Opposite wall is the living loft.",
+        items: ["Washing machine 3'", "Basin cabinet 2'-6\"", "Cabinet finish matches kitchen / loft", "Loft can continue over this run"],
+        mini: [{x:16,y:12,w:40,h:30,t:"2nd"},{x:60,y:12,w:44,h:30,t:"BASIN"},{x:16,y:50,w:88,h:28,t:"dining"}],
+        active: 1,
+        svg(){
+          return roomShell(BEIGE, `
+            ${loftRun({x:80, y:28, w:560, h:40, doors:5, title:"LOFT OVER UTILITY"})}
+            <g filter="url(#soft)">
+              <rect x="150" y="90" width="160" height="178" fill="#d0d4d8" stroke="#5c5548"/>
+              <circle cx="230" cy="178" r="48" fill="#bfc4c8" stroke="#8a8f94"/>
+              <circle cx="230" cy="178" r="18" fill="#9aa0a6"/>
+            </g>
+            ${label(150, 84, "WASHING MACHINE  3'")}
+            <g filter="url(#soft)">
+              <rect x="340" y="150" width="220" height="118" fill="${C.secondary}"/>
+              <ellipse cx="450" cy="168" rx="58" ry="16" fill="#e9e0d1" stroke="#8a5a34"/>
+              <rect x="444" y="140" width="12" height="20" fill="#8a5a34"/>
+              <rect x="348" y="186" width="100" height="74" fill="#2b2620"/>
+              <rect x="452" y="186" width="100" height="74" fill="#2b2620"/>
+            </g>
+            ${label(340, 144, "BASIN UNIT  2'-6\"")}
+            ${dimLine(150, 310, 292, "3'")}
+            ${dimLine(340, 560, 292, "2'-6\"")}
+          `) + closeSvg();
+        }
+      }
+    ]
+  },
+  "kitchen": {
+    title: "Kitchen",
+    tag: "Beige walls. L-shape: sink wall and hob wall drawn apart. Two-tone semi-modular.",
+    paint: "beige",
+    roles: { primary: "Base cabinet body", secondary: "Wall cabinet body", tertiary: "All cabinet door faces" },
+    pickers: [
+      { key: "primary", label: "Base cabinet body", set: "wood" },
+      { key: "secondary", label: "Wall cabinet body", set: "wood" },
+      { key: "tertiary", label: "All cabinet door faces", set: "wood" }
+    ],
+    combos: [
+      { name: "Charcoal + Off-White + Cream", primary: "#3a352c", secondary: "#f4efe6", tertiary: "#e8dfd0" },
+      { name: "Olive + Ivory + White", primary: "#4a5240", secondary: "#f8f5ef", tertiary: "#f4efe6" },
+      { name: "Deep Teal + Warm White + Ivory", primary: "#2f3e46", secondary: "#f6f1e7", tertiary: "#f4efe6" },
+      { name: "Walnut + Cream + Ivory", primary: "#6b3f24", secondary: "#e8dfd0", tertiary: "#f4efe6" },
+      { name: "Navy + Ivory + Ash", primary: "#3a4658", secondary: "#f4efe6", tertiary: "#d4cdc0" },
+      { name: "Teak + White + Cream", primary: "#8a5a34", secondary: "#f8f5ef", tertiary: "#e8dfd0" }
+    ],
+    body: "Base cabinets in a deeper tone, wall cabinets in white or off-white. Dark on the bottom hides wear; light on top keeps the beige ceiling feeling higher. Light quartz counter. Plain or large-format backsplash. Fridge sits in the dining, not inside this L.",
+    lighting: [
+      "Under-cabinet LED strips over the full counter, warm white",
+      "One central fixture, separate circuit from the under-cabinet"
+    ],
+    flag: "",
+    walls: [
+      {
+        id: "sink",
+        name: "Sink wall",
+        dim: "north run",
+        face: "Beige wall toward dining. Fridge / crockery sit just beyond this opening.",
+        items: ["Upper cabinets, light", "Quartz counter + sink", "Base cabinets, dark", "Under-cabinet LED"],
+        mini: [{x:14,y:14,w:92,h:20,t:"SINK"},{x:14,y:58,w:92,h:20,t:"hob"},{x:14,y:34,w:20,h:24,t:""}],
+        active: 0,
+        svg(){
+          return roomShell(BEIGE, `
+            ${upperCabs({x:60, y:36, w:600, h:70, doors:5, title:"WALL CABINETS"})}
+            <rect x="60" y="200" width="600" height="16" fill="#e6ded0"/>
+            <rect x="60" y="196" width="600" height="6" fill="#f2ebe0"/>
+            <ellipse cx="240" cy="208" rx="40" ry="8" fill="#d8d0c4" stroke="#8a5a34"/>
+            ${baseCabs({x:60, y:216, w:600, h:52, doors:4})}
+            ${label(210, 194, "SINK")}
+            ${label(40, 390, "BEIGE KITCHEN WALL")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "hob",
+        name: "Hob wall",
+        dim: "south run",
+        face: "Beige wall with the hob. Drawing-room TV unit is on the other side of the right-hand partition.",
+        items: ["Uppers over the hob", "3-burner hob", "Chimney / hood", "Base drawers"],
+        mini: [{x:14,y:14,w:92,h:20,t:"sink"},{x:14,y:58,w:92,h:20,t:"HOB"},{x:14,y:34,w:20,h:24,t:""}],
+        active: 1,
+        svg(){
+          return roomShell(BEIGE, `
+            ${upperCabs({x:80, y:34, w:240, h:66, doors:2, title:"UPPERS"})}
+            ${upperCabs({x:400, y:34, w:240, h:66, doors:2, title:"UPPERS"})}
+            <rect x="300" y="28" width="120" height="50" rx="4" fill="#3a352c"/>
+            <rect x="312" y="70" width="4" height="40" fill="#3a352c"/>
+            <rect x="404" y="70" width="4" height="40" fill="#3a352c"/>
+            ${label(300, 22, "HOOD")}
+            <rect x="80" y="200" width="560" height="16" fill="#e6ded0"/>
+            <rect x="250" y="188" width="220" height="14" rx="2" fill="#2b2620"/>
+            <circle cx="300" cy="195" r="8" fill="none" stroke="#c9a24a" stroke-width="2"/>
+            <circle cx="360" cy="195" r="8" fill="none" stroke="#c9a24a" stroke-width="2"/>
+            <circle cx="420" cy="195" r="8" fill="none" stroke="#c9a24a" stroke-width="2"/>
+            ${baseCabs({x:80, y:216, w:560, h:52, doors:4})}
+            ${label(40, 390, "BEIGE KITCHEN WALL  ·  HOB")}
+          `) + closeSvg();
+        }
+      }
+    ]
+  },
+  "drawing": {
+    title: "Living / Drawing Room",
+    tag: "Beige walls. This is the 7' TV room — not purple. Sofa faces the TV. Crockery is in dining.",
+    paint: "beige",
+    roles: { primary: "Sofa fabric", secondary: "TV console / panel", tertiary: "Cushions" },
+    pickers: [
+      { key: "primary", label: "Sofa fabric", set: "fabric" },
+      { key: "secondary", label: "TV console / panel", set: "wood" },
+      { key: "tertiary", label: "Cushions", set: "fabric" }
+    ],
+    combos: [
+      { name: "Warm Grey + Teak + Blush", primary: "#a9938a", secondary: "#6b4526", tertiary: "#c4a4a8" },
+      { name: "Terracotta + Teak + Ivory", primary: "#c17b5a", secondary: "#8a5a34", tertiary: "#efe6d4" },
+      { name: "Bottle Green + Espresso + Ochre", primary: "#5c7563", secondary: "#4a3a30", tertiary: "#c9a24a" },
+      { name: "Mauve + Walnut + Grey", primary: "#9c7f8c", secondary: "#6b3f24", tertiary: "#a9938a" }
+    ],
+    body: "A 7×1'-2\" TV unit is a large piece, so keep it a floating console, not floor-standing. Fluted teak panel behind the TV. Crockery lives on the dining north wall, not in this room. Sofa on the guest-room wall, warm grey or terracotta against beige.",
+    lighting: [
+      "Recessed spots washing the TV panel, not bouncing off the screen",
+      "Ambient ceiling on a dimmer",
+      "No extra fixture on the sofa wall"
+    ],
+    flag: "",
+    walls: [
+      {
+        id: "tv",
+        name: "TV unit wall",
+        dim: "7'-0\" × 1'-2\"",
+        face: "West wall — the partition toward the kitchen. Sofa is behind you.",
+        items: ["7'-0\" TV run, 1'-2\" deep", "Fluted teak panel", "Floating console", "Beige wall around the panel"],
+        mini: [{x:14,y:18,w:14,h:56,t:"TV"},{x:70,y:28,w:36,h:18,t:"sofa"},{x:36,y:36,w:16,h:12,t:""}],
+        active: 0,
+        svg(){
+          return roomShell(BEIGE, `
+            <g stroke="${C.secondary}" stroke-width="7" fill="none">
+              <line x1="160" y1="28" x2="160" y2="250"/>
+              <line x1="176" y1="28" x2="176" y2="250"/>
+              <line x1="192" y1="28" x2="192" y2="250"/>
+              <line x1="208" y1="28" x2="208" y2="250"/>
+              <line x1="224" y1="28" x2="224" y2="250"/>
+              <line x1="240" y1="28" x2="240" y2="250"/>
+              <line x1="256" y1="28" x2="256" y2="250"/>
+              <line x1="272" y1="28" x2="272" y2="250"/>
+              <line x1="288" y1="28" x2="288" y2="250"/>
+              <line x1="304" y1="28" x2="304" y2="250"/>
+              <line x1="320" y1="28" x2="320" y2="250"/>
+              <line x1="336" y1="28" x2="336" y2="250"/>
+              <line x1="352" y1="28" x2="352" y2="250"/>
+              <line x1="368" y1="28" x2="368" y2="250"/>
+              <line x1="384" y1="28" x2="384" y2="250"/>
+              <line x1="400" y1="28" x2="400" y2="250"/>
+              <line x1="416" y1="28" x2="416" y2="250"/>
+              <line x1="432" y1="28" x2="432" y2="250"/>
+              <line x1="448" y1="28" x2="448" y2="250"/>
+              <line x1="464" y1="28" x2="464" y2="250"/>
+              <line x1="480" y1="28" x2="480" y2="250"/>
+              <line x1="496" y1="28" x2="496" y2="250"/>
+              <line x1="512" y1="28" x2="512" y2="250"/>
+              <line x1="528" y1="28" x2="528" y2="250"/>
+              <line x1="544" y1="28" x2="544" y2="250"/>
+              <line x1="560" y1="28" x2="560" y2="250"/>
+            </g>
+            <rect x="230" y="70" width="260" height="148" fill="#1c1a18"/>
+            <rect x="242" y="82" width="236" height="124" fill="#2b2620"/>
+            <g filter="url(#soft)">
+              <rect x="210" y="228" width="300" height="28" fill="${C.secondary}"/>
+              <rect x="222" y="234" width="70" height="16" fill="#3a3228"/>
+              <rect x="300" y="234" width="70" height="16" fill="#3a3228"/>
+              <rect x="378" y="234" width="118" height="16" fill="#3a3228"/>
+            </g>
+            ${dimLine(160, 560, 292, "TV UNIT  7'-0\"")}
+            ${label(160, 390, "BEIGE LIVING WALL  ·  7' TV  ·  DEPTH 1'-2\"")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "sofa",
+        name: "Sofa wall",
+        dim: "facing the 7' TV",
+        face: "East wall, toward the guest bedroom. TV is opposite.",
+        items: ["Sofa facing the TV", "Centre table", "Beige wall", "Guest wardrobe is on the other side of this wall"],
+        mini: [{x:14,y:18,w:14,h:56,t:"TV"},{x:70,y:28,w:36,h:18,t:"SOFA"},{x:36,y:36,w:16,h:12,t:""}],
+        active: 1,
+        svg(){
+          return roomShell(BEIGE, `
+            <g filter="url(#soft)">
+              <rect x="180" y="168" width="360" height="70" rx="10" fill="${C.primary}"/>
+              <rect x="192" y="148" width="70" height="36" rx="8" fill="${shade(C.primary,-18)}"/>
+              <rect x="458" y="148" width="70" height="36" rx="8" fill="${shade(C.primary,-18)}"/>
+              <rect x="270" y="156" width="50" height="22" rx="6" fill="${C.tertiary}"/>
+              <rect x="400" y="156" width="50" height="22" rx="6" fill="${C.tertiary}"/>
+            </g>
+            <rect x="300" y="248" width="120" height="36" fill="#d8ccb6" stroke="#8a5a34"/>
+            ${label(180, 140, "SOFA")}
+            ${label(40, 390, "BEIGE LIVING WALL  ·  SOFA FACING TV")}
+          `) + closeSvg();
+        }
+      }
+    ]
+  },
+  "guest": {
+    title: "Guest Bedroom & Puja",
+    tag: "Purple on all four walls. Wardrobe on the drawing-room wall; puja on the south wall; bed on the north.",
+    paint: "purple",
+    roles: { primary: "Wardrobe shutters", secondary: "Puja wood + loft flaps", tertiary: "Door inserts" },
+    pickers: [
+      { key: "primary", label: "Wardrobe shutters", set: "wood" },
+      { key: "secondary", label: "Puja wood + loft flaps", set: "wood" },
+      { key: "tertiary", label: "Door inserts", set: "wood" }
+    ],
+    combos: [
+      { name: "Ash + Sheesham + Ivory", primary: "#d9d0c2", secondary: "#a97a4c", tertiary: "#f4efe6" },
+      { name: "Ivory + Sheesham + Cream", primary: "#e4ded2", secondary: "#8a5a34", tertiary: "#e8dfd0" },
+      { name: "Taupe + Sheesham + White", primary: "#cfc3ae", secondary: "#6b4526", tertiary: "#f8f5ef" },
+      { name: "Graphite + Sheesham + Ivory", primary: "#5c5548", secondary: "#a97a4c", tertiary: "#f4efe6" }
+    ],
+    body: "Smallest of the three bedrooms, so it feels the purple most. Keep the 4'-6\" wardrobe in the lightest finish. Puja is its own piece: 3' wide, light wood or sheesham with brass, not the same laminate as the wardrobe.",
+    lighting: [
+      "Puja: small pendant or warm LED strip, own switch, dimmer than the room",
+      "Bedside: same swing-arm as the other bedrooms",
+      "Slightly brighter general ceiling than a beige room this size"
+    ],
+    flag: "Check puja facing before the unit is built in.",
+    walls: [
+      {
+        id: "wardrobe",
+        name: "Wardrobe wall",
+        dim: "4'-6\"",
+        face: "West wall, shared with the drawing sofa. Puja is to your right.",
+        items: ["4'-6\" wardrobe with loft", "Light laminate", "Two or three shutters"],
+        mini: [{x:12,y:40,w:18,h:40,t:"WR"},{x:40,y:14,w:50,h:28,t:"bed"},{x:78,y:58,w:22,h:24,t:"puja"}],
+        active: 0,
+        svg(){
+          return roomShell(PURPLE, `
+            ${wardrobe({x:170, y:36, w:360, h:232, loft:48, doors:2, mirror:false})}
+            ${dimLine(170, 530, 292, "4'-6\"")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "puja",
+        name: "Puja wall",
+        dim: "3'-0\"",
+        face: "South wall. Wardrobe to the left. Bed behind you.",
+        items: ["3' puja unit", "Sheesham / light wood, brass trim", "Warm niche light", "Own switch"],
+        mini: [{x:12,y:40,w:18,h:40,t:"WR"},{x:40,y:14,w:50,h:28,t:"bed"},{x:78,y:58,w:22,h:24,t:"PUJA"}],
+        active: 2,
+        svg(){
+          return roomShell(PURPLE, `
+            <g filter="url(#soft)">
+              <path d="M260 268 L260 110 Q360 48 460 110 L460 268 Z" fill="${C.secondary}" stroke="#6b4526" stroke-width="2"/>
+              <rect x="292" y="130" width="136" height="90" fill="#f4d78e" opacity="0.35"/>
+              <rect x="308" y="190" width="104" height="70" fill="#6b4526"/>
+              <rect x="320" y="202" width="80" height="12" fill="#c9a24a"/>
+            </g>
+            <circle cx="360" cy="88" r="6" fill="#f4d78e"/>
+            <line x1="360" y1="94" x2="360" y2="118" stroke="#c9a24a" stroke-width="2"/>
+            ${dimLine(260, 460, 292, "PUJA  3'-0\"")}
+          `) + closeSvg();
+        }
+      },
+      {
+        id: "bed",
+        name: "Bed wall",
+        dim: "bed 4'-6\"",
+        face: "North wall, under the baths. Wardrobe left, puja right-back.",
+        items: ["4'-6\" guest bed", "One side table", "Purple wall"],
+        mini: [{x:12,y:40,w:18,h:40,t:"WR"},{x:40,y:14,w:50,h:28,t:"BED"},{x:78,y:58,w:22,h:24,t:"puja"}],
+        active: 1,
+        svg(){
+          return roomShell(PURPLE, `
+            ${bed({x:200, y:214, w:280})}
+            ${nightstand(164, 236)}
+            ${dimLine(200, 480, 292, "BED  4'-6\"")}
+            ${label(40, 390, "PURPLE WALL")}
+          `) + closeSvg();
+        }
+      }
+    ]
+  }
+};
+
+const detailEl = document.getElementById("detail");
+const buttons = document.querySelectorAll(".room-btn");
+const comboState = {};
+const colorState = {};
+const wallState = {};
+
+function pickersFor(r){
+  if(r.pickers && r.pickers.length) return r.pickers;
+  return Object.entries(r.roles || {}).map(([key, label]) => ({
+    key, label, set: /fabric|chair|sofa|cushion/i.test(label) ? "fabric" : "wood"
+  }));
+}
+
+function comboColors(combo){
+  return {
+    primary: combo.primary,
+    secondary: combo.secondary,
+    tertiary: combo.tertiary || shade(combo.secondary || combo.primary, 28)
+  };
+}
+
+function colorsMatch(a, b){
+  return ["primary","secondary","tertiary"].every(k => (a[k]||"").toLowerCase() === (b[k]||"").toLowerCase());
+}
+
+function ensureColors(key){
+  const r = rooms[key];
+  if(!(key in comboState)) comboState[key] = 0;
+  if(!colorState[key]) colorState[key] = comboColors(r.combos[comboState[key]]);
+}
+
+function applyCombo(key, i){
+  comboState[key] = i;
+  colorState[key] = comboColors(rooms[key].combos[i]);
+}
+
+function setRoleColor(key, role, hex){
+  colorState[key][role] = hex;
+  const hit = rooms[key].combos.findIndex(c => colorsMatch(comboColors(c), colorState[key]));
+  comboState[key] = hit;
+}
+
+function chipName(setName, hex){
+  const hit = (SETS[setName] || []).find(c => c.hex.toLowerCase() === hex.toLowerCase());
+  return hit ? hit.name : hex;
+}
+
+function mixerHtml(r, colors){
+  return pickersFor(r).map(p => {
+    const cur = colors[p.key];
+    const chips = (SETS[p.set] || WOODS).map(c => {
+      const on = c.hex.toLowerCase() === cur.toLowerCase();
+      return `<button type="button" class="chip ${on ? "active" : ""}" data-role="${p.key}" data-hex="${c.hex}" title="${c.name}" style="background:${c.hex}"></button>`;
+    }).join("");
+    return `<div class="mix-block">
+      <div class="mix-label"><strong>${p.label}</strong></div>
+      <div class="chip-row">
+        ${chips}
+        <label class="chip chip-custom"><input type="color" data-role="${p.key}" value="${cur}">Custom</label>
+        <span class="chip-name">${chipName(p.set, cur)}</span>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function render(key){
+  const r = rooms[key];
+  if(!(key in wallState)) wallState[key] = 0;
+  ensureColors(key);
+  const colors = colorState[key];
+  const wall = r.walls[wallState[key]];
+  C = {
+    primary: colors.primary,
+    secondary: colors.secondary,
+    tertiary: colors.tertiary
+  };
+  const pickers = pickersFor(r);
+  const roleKeys = pickers.map(p => p.key);
+  const styleVars = roleKeys.map(k => `--c-${k}:${colors[k]}`).join(";");
+
+  const wallButtons = r.walls.map((w, i) => `
+    <button class="wall-btn ${i === wallState[key] ? "active" : ""}" data-wall="${i}">
+      <span class="wn">0${i+1}  ${w.dim}</span>
+      ${w.name}
+    </button>`).join("");
+
+  const comboButtons = r.combos.map((c, i) => {
+    const dots = roleKeys.map(k => `<span style="background:${comboColors(c)[k]}"></span>`).join("");
+    return `<button class="combo-btn ${i === comboState[key] ? "active" : ""}" data-combo="${i}"><span class="combo-dot-pair">${dots}</span>${c.name}</button>`;
+  }).join("");
+
+  const fcRows = pickers.map(p => {
+    return `<div class="fc-row"><span class="fc-swatch" style="background:${colors[p.key]}"></span><span class="fc-label">${p.label}</span><span class="fc-hex">${chipName(p.set, colors[p.key])} · ${colors[p.key]}</span></div>`;
+  }).join("");
+
+  let html = `
+    <h2>${r.title}</h2>
+    <p class="tagline">${r.tag}</p>
+    <div class="section-label">Walls in this room</div>
+    <div class="wall-row">${wallButtons}</div>
+    <div class="scene-wrap">
+      <div class="scene" style="${styleVars}">${wall.svg()}</div>
+      <div class="scene-meta"><span><strong>${wall.name}</strong> · ${wall.dim}</span><span>${wall.face}</span></div>
+    </div>
+    <div class="look-grid">
+      <div class="mini-plan">
+        <div class="mini-cap">Which wall</div>
+        ${miniPlanSvg(wall.mini, wall.active)}
+      </div>
+      <div>
+        <div class="section-label" style="margin-top:0">On this wall</div>
+        <ul class="on-wall">${wall.items.map(i => `<li>${i}</li>`).join("")}</ul>
+      </div>
+    </div>
+    <div class="section-label">Quick looks</div>
+    <p class="mix-note">Tap a look to start, then mix each part below. Shutters, loft, and inserts stay separate — not one paint.</p>
+    <div class="combo-row">${comboButtons}${comboState[key] < 0 ? `<span class="combo-btn active">Your mix</span>` : ""}</div>
+    <div class="section-label">Mix your own</div>
+    ${mixerHtml(r, colors)}
+    <div class="section-label">Furniture colors in this view</div>
+    <div class="furniture-colors">${fcRows}</div>
+    <div class="section-label">Palette &amp; materials</div>
+    <p>${r.body}</p>
+    <div class="section-label">Lighting</div>
+    <ul>${r.lighting.map(l => `<li>${l}</li>`).join("")}</ul>
+  `;
+  if(r.flag){
+    html += `<div class="flag">${r.flag}</div>`;
+  }
+  detailEl.innerHTML = html;
+
+  detailEl.querySelectorAll(".combo-btn[data-combo]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      applyCombo(key, parseInt(btn.dataset.combo, 10));
+      render(key);
+    });
+  });
+  detailEl.querySelectorAll(".wall-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      wallState[key] = parseInt(btn.dataset.wall, 10);
+      render(key);
+    });
+  });
+  detailEl.querySelectorAll(".chip[data-hex]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      setRoleColor(key, btn.dataset.role, btn.dataset.hex);
+      render(key);
+    });
+  });
+  detailEl.querySelectorAll("input[type=color]").forEach(inp => {
+    inp.addEventListener("change", () => {
+      setRoleColor(key, inp.dataset.role, inp.value);
+      render(key);
+    });
+  });
+}
+
+try{
+  buttons.forEach(btn => {
+    btn.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      buttons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      render(btn.dataset.room);
+      detailEl.scrollIntoView({behavior:"smooth", block:"nearest"});
+    });
+  });
+  buttons[0].classList.add("active");
+  render("second-bed");
+}catch(err){
+  document.documentElement.classList.remove("js");
+  detailEl.innerHTML = "<h2>Could not draw this page</h2><p class=\"tagline\">"+String(err&&err.message||err)+"</p>";
+}
+</script>
+
+</body>
+</html>
